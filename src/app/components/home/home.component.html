@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    @for(cubo of cubos; track cubo){
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img
+            [src]="cubo.imagen"
+            alt="Imagen del cubo {{ cubo.nombre }}"
+            class="card-img-top"
+            style="height: 200px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ cubo.nombre }}</h5>
+            <p class="price text-muted"><strong>Precio:</strong> {{ cubo.precio | currency:'USD' }}</p>
+          </div>
+          <div class="card-footer text-center">
+            <a
+              class="btn btn-outline-primary btn-sm"
+              [routerLink]="['/cubo', cubo.idCubo]"
+            >
+              Detalles
+            </a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+</div>

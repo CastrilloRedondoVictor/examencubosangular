@@ -1,0 +1,24 @@
+@if(cubo) {
+  <div class="container mt-3">
+    <div class="card">
+      <img [src]="cubo.imagen" alt="Imagen del cubo {{ cubo.nombre }}" />
+      <div class="card-content">
+        <h3>{{ cubo.nombre }} - {{ cubo.marca }}</h3>
+        <p><strong>Modelo:</strong> {{ cubo.modelo }}</p>
+        <p><strong>Color:</strong> {{ cubo.color }}</p>
+        <p class="price"><strong>Precio:</strong> {{ cubo.precio | currency:'USD' }}</p>
+        <p class="rating">
+          <strong>Valoración: {{ cubo.valoracion }}</strong>
+        </p>
+        <div class="card-footer text-center">
+          <a
+            class="btn btn-outline-primary btn-sm"
+            [routerLink]="['/home']"
+          >
+            Volver
+          </a>
+        </div>
+      </div>
+    </div>
+</div>
+}

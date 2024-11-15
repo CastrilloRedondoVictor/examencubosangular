@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <form (ngSubmit)="onSubmit()" class="p-4 border rounded shadow-sm bg-light">
+
+    <!-- Campo de Cubo -->
+    <div class="form-group">
+      <label for="cubo" class="font-weight-bold">Cubo</label>
+      <select
+        id="cubo"
+        class="form-control"
+        [(ngModel)]="cubo"
+        name="cubo"
+        required>
+        <option *ngFor="let cub of cubos" [value]="cub.idCubo">{{ cub.nombre }}</option>
+      </select>
+    </div>
+
+    <!-- Botón de Compra -->
+    <div class="d-flex justify-content-between mt-4">
+      <button type="submit" class="btn btn-primary">
+        Comprar cubo
+      </button>
+    </div>
+  </form>
+</div>

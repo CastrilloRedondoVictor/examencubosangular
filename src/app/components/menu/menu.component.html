@@ -1,0 +1,129 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  <div class="container">
+    <!-- Logo y Nombre del Sitio -->
+    <a class="navbar-brand fw-bold" [routerLink]="['/']">
+      CUBOS
+    </a>
+
+    <!-- Botón de Menú Móvil -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menú de Navegación -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" [routerLinkActive]="'active'">
+          <a class="nav-link fw-semibold" [routerLink]="['/']">
+            Home
+          </a>
+        </li>
+
+        <!-- Menú desplegable para opciones adicionales -->
+        <li class="nav-item dropdown" [routerLinkActive]="'active'">
+          <a
+            class="nav-link dropdown-toggle fw-semibold"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Marcas
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            @for(marca of marcas; track marca){
+              <li><a class="dropdown-item" [routerLink]="['/marca', marca]">{{marca}}</a></li>
+            }
+          </ul>
+        </li>
+
+        <!-- Opciones según estado de sesión -->
+        @if(isLogged()){
+          <li class="nav-item dropdown" [routerLinkActive]="'active'">
+            <a
+              class="nav-link dropdown-toggle fw-semibold"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Seguridad
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item" [routerLinkActive]="'active'">
+                <button class="nav-link text-dark fw-semibold" (click)="logOut()">
+                  Cerrar sesión
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown" [routerLinkActive]="'active'">
+            <a
+              class="nav-link dropdown-toggle fw-semibold"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Usuario
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link text-dark fw-semibold" [routerLink]="['/login']">
+                  Perfil
+                </a>
+              </li>
+              <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link text-dark fw-semibold" [routerLink]="['/compras']">
+                  Compras
+                </a>
+              </li>
+              <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link text-dark fw-semibold" [routerLink]="['/pedido']">
+                  Realizar pedido
+                </a>
+              </li>
+            </ul>
+          </li>
+        }
+        @if(!isLogged()) {
+          <li class="nav-item dropdown" [routerLinkActive]="'active'">
+            <a
+              class="nav-link dropdown-toggle fw-semibold"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Seguridad
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link text-dark fw-semibold" [routerLink]="['/login']">
+                  Iniciar sesión
+                </a>
+              </li>
+              <li class="nav-item" [routerLinkActive]="'active'">
+                <a class="nav-link text-dark fw-semibold" [routerLink]="['/register']">
+                  Registrarse
+                </a>
+              </li>
+            </ul>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>
