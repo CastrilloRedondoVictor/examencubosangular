@@ -28,17 +28,14 @@ export class LoginComponent implements OnInit {
     return this._cubosService.isLogged()
   }
 
-  // Método para manejar el envío del formulario
+
   onLogin() {
-    // Llamamos al servicio de autenticación
     this._cubosService.login(this.email, this.password).subscribe(
       (response) => {
-        // Al recibir una respuesta positiva, almacenamos el token en el localStorage
         localStorage.setItem('access_token', response.response);
-        this.router.navigate(['/']);  // Redirigimos al usuario a la página principal
+        this.router.navigate(['/']);
       },
       (error) => {
-        // Si ocurre un error, mostramos el mensaje de error
         this.errorMessage = 'Credenciales incorrectas. Intenta nuevamente.';
       }
     );

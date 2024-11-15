@@ -19,17 +19,13 @@ export class RegisterComponent {
     private router: Router
   ){}
 
-  // Método para manejar el envío del formulario
   onRegister() {
-    // Llamamos al servicio de autenticación
     this._cubosService.register(this.nombre, this.email, this.password).subscribe(
       (response) => {
-        // Al recibir una respuesta positiva, almacenamos el token en el localStorage
         console.log(response)
-        this.router.navigate(['/login']);  // Redirigimos al usuario a la página principal
+        this.router.navigate(['/login']);
       },
       (error) => {
-        // Si ocurre un error, mostramos el mensaje de error
         this.errorMessage = 'Error al registrar. Intenta nuevamente.';
       }
     );
