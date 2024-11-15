@@ -84,4 +84,10 @@ export class CubosService {
 
     return this.http.post(this.apiCubos + request, {}, { headers })
   }
+
+  getComentarios(idCubo: number): Observable<any> {
+    let request = 'api/ComentariosCubo/GetComentariosCubo/' + idCubo
+
+    return this.http.get(this.apiCubos + request)
+  }
 }

@@ -20,5 +20,13 @@
         </div>
       </div>
     </div>
+    <div class="mt-5">
+      <h2>Comentarios:</h2>
+      <br>
+      @for(comentario of comentarios; track comentario){
+        <app-comentario  [comentario]="comentario"></app-comentario>
+      }
+    </div>
+
 </div>
 }

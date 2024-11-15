@@ -13,6 +13,7 @@ import { CuboComponentComponent } from './components/cubo-component/cubo-compone
 import { MarcaComponent } from './components/marca/marca.component';
 import { ComprasComponent } from './components/compras/compras.component';
 import { PedidoComponent } from './components/pedido/pedido.component';
+import { ComentarioComponent } from './components/comentario/comentario.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PedidoComponent } from './components/pedido/pedido.component';
     CuboComponentComponent,
     MarcaComponent,
     ComprasComponent,
-    PedidoComponent
+    PedidoComponent,
+    ComentarioComponent
   ],
   imports: [
     BrowserModule,
